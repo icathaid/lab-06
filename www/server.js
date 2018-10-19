@@ -19,32 +19,40 @@ app.use( express.static('./public') );
 
 app.get('/', homePage);
 app.get('/products/', productsView);
-app.get('/teams/', teamsPage);
-
+app.get('/categories/', categoriesView);
 
 function homePage( req, res ){
-  res.render('site', {page:'./pages/home',title:'Our Site: Home'});
+  res.render('index', {page:'./pages/home',title:'Our Site: Home'});
 }
 
 function productsView(req, res){
   superagent.get(`${API}/products`)
     .then( data => {
-      res.render('site', {products:data.body, page:'./pages/products', title:'Products page'});
+      res.render('index', {products:data.body, page:'./pages/products', title:'Products page'});
     })
     .catch(err => {console.log('errrrrr:     ', err);
     });
 }
 
-
-function teamsPage(request,response) {
-  superagent.get(`${API}/teams`)
+function categoriesView(req, res){
+  superagent.get(`${API}/categories`)
     .then( data => {
-      response.render('site', {teams:data.body, page:'./pages/teams', title:'Our Site: Teams'});
-
+      res.render('index', {categories:data.body, page:'./pages/categories', title:'Categories page'});
     })
-    .catch( error => console.error(error) );
-
+    .catch(err => {
+      console.error(err);
+    });
 }
+
+// function teamsPage(request,response) {
+//   superagent.get(`${API}/teams`)
+//     .then( data => {
+//       response.render('index', {teams:data.body, page:'./pages/teams', title:'Our Site: Teams'});
+
+//     })
+//     .catch( error => console.error(error) );
+
+// }
 
 app.listen(PORT, () => {
   console.log(`listening on PORT ${PORT}`);
