@@ -18,8 +18,8 @@ app.set('view engine', 'ejs');
 app.use( express.static('./public') );
 
 app.get('/', homePage);
-app.get('/products/', productsView);
 app.get('/categories/', categoriesView);
+app.get('/categories/:name', productsView);
 
 function homePage( req, res ){
   res.render('index', {page:'./pages/home',title:'Our Site: Home'});
