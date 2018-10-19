@@ -30,7 +30,7 @@ function productsView(req, res){
   superagent.get(`${API}/products`)
     .then(data => {
       console.log(data.body);
-      res.render('site', {page:'./pages/products',title:'Products page'});
+      res.render('site', {products:'data.body',page:'./pages/products',title:'Products page'});
     })
     .catch(err => {console.log('errrrrr:     ', err);
     });
