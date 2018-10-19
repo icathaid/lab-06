@@ -1,1 +1,9 @@
 <h1>This is the products page</h1>
+
+<ul>
+  <% products.forEach( product => { %>
+  <li>
+    <%= product.name %>  -  <%= product.description %>
+  </li>
+  <% }) %>
+</ul>

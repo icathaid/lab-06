@@ -19,7 +19,7 @@ app.use( express.static('./public') );
 
 app.get('/', homePage);
 app.get('/products/', productsView);
-// app.get('/teams/', teamsPage);
+app.get('/teams/', teamsPage);
 
 
 function homePage( req, res ){
@@ -28,12 +28,22 @@ function homePage( req, res ){
 
 function productsView(req, res){
   superagent.get(`${API}/products`)
-    .then(data => {
-      console.log(data.body);
-      res.render('site', {products:'data.body',page:'./pages/products',title:'Products page'});
+    .then( data => {
+      res.render('site', {products:data.body, page:'./pages/products', title:'Products page'});
     })
     .catch(err => {console.log('errrrrr:     ', err);
     });
+}
+
+
+function teamsPage(request,response) {
+  superagent.get(`${API}/teams`)
+    .then( data => {
+      response.render('site', {teams:data.body, page:'./pages/teams', title:'Our Site: Teams'});
+
+    })
+    .catch( error => console.error(error) );
+
 }
 
 app.listen(PORT, () => {
