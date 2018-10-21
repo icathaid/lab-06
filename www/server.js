@@ -14,14 +14,17 @@ app.use( express.static('./public') );
 
 app.get('/', homePage);
 app.get('/categories/', categoriesView);
-app.get('/categories:/name', productsView);
+app.get('/categories/:name', productsView);
 
 function homePage( req, res ){
   res.render('index', {page:'./pages/home',title:'Our Site: Home'});
 }
 
-function productsView(req, res, category){
-  superagent.get(`${API}/categories?=${category.name}`)
+function productsView(req, res, name){
+  //  the api call only works if i hardwire in the category, i still need to figure out how to render the superagent calls dynamically.
+  // superagent.get(`${API}/products?category=${name}`)
+  //  ^^ was my best guess, but didn't work ^^
+  superagent.get(`${API}/products?category=aid`)
     .then( data => {
       res.render('index', {products:data.body, page:'./pages/products', title:'Products page'});
     })
