@@ -58,8 +58,6 @@ can be started with `npm run dev`
 
 - TODO
 
-###### Testing
-**Web Server**
-
-* Use `supertest` to assert that the server responds to the routes
-* Mock out the API calls in the web server test
+webserver
+[] Use `supertest` to assert that the server responds to the routes
+[] Mock out the API calls in the web server test
