@@ -8,25 +8,20 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const API = process.env.API_URL || 'http://localhost:3000';
 
-
-//  set up ejs as our template engine:
-
 app.set('view engine', 'ejs');
 
-
-//  set the public folder for static assets:
 app.use( express.static('./public') );
 
 app.get('/', homePage);
 app.get('/categories/', categoriesView);
-app.get('/categories/:name', productsView);
+app.get('/categories:/name', productsView);
 
 function homePage( req, res ){
   res.render('index', {page:'./pages/home',title:'Our Site: Home'});
 }
 
-function productsView(req, res){
-  superagent.get(`${API}/products`)
+function productsView(req, res, category){
+  superagent.get(`${API}/categories?=${category.name}`)
     .then( data => {
       res.render('index', {products:data.body, page:'./pages/products', title:'Products page'});
     })
@@ -43,16 +38,6 @@ function categoriesView(req, res){
       console.error(err);
     });
 }
-
-// function teamsPage(request,response) {
-//   superagent.get(`${API}/teams`)
-//     .then( data => {
-//       response.render('index', {teams:data.body, page:'./pages/teams', title:'Our Site: Teams'});
-
-//     })
-//     .catch( error => console.error(error) );
-
-// }
 
 app.listen(PORT, () => {
   console.log(`listening on PORT ${PORT}`);

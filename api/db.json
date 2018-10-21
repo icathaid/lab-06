@@ -1,0 +1,68 @@
+{
+  "categories":[
+    {
+    "name":"aid",
+    "display name":"Aid",
+    "description":"link goes here",
+    "_id":3
+  },
+  {
+    "name":"ammo",
+    "display name":"Ammo",
+    "description":"link goes here",
+    "_id":4
+  },
+  {
+    "name":"apparel",
+    "display name":"Apparel",
+    "description":"link goes here",
+    "_id":5
+  }
+],
+  "products": [
+    {
+      "_id": 1,
+      "category": "aid",
+      "name": "nuka-cola",
+      "display_name": "Nuka-Cola",
+      "description": "a tasty beverage, +HP, +AP"
+    },
+    {
+      "_id": 2,
+      "category": "aid",
+      "name": "radsteak",
+      "display_name": "Radscorpion Steak",
+      "description": "food, +25 Energy Resistance for 1 hr"
+    },
+    {
+      "category":"aid",
+      "name":"grillrad",
+      "display_name":"Grilled Radstag",
+      "description": "food, +50% Carry Weight for 1 hr"
+    },
+    {
+      "category":"ammo",
+      "name":"mini nuke",
+      "display_name": "Mini Nuke",
+      "description": "utter devastation"
+    },
+    {
+      "category":"ammo",
+      "name":"10mm",
+      "display_name":"10mm round",
+      "description":"10mm round"
+    },
+    {
+      "category":"apparel",
+      "name":"spike armor",
+      "display_name":"Spike Armor",
+      "description":"pretty decent inclusive armor package"
+    },
+    {
+      "category":"apparel",
+      "name":"v111 jumpsuit",
+      "display":"Vault 111 Jumpsuit",
+      "description":"+2 INT, no armor value"
+    }
+  ]
+}
