@@ -1,5 +1,14 @@
-![CF](http://i.imgur.com/7v5ASc8.png) LAB: HTTP and REST
+ LAB: HTTP and REST
 ========================================================
+//  I'm stuck on the syntax of this get request
+  //  http GET :3000/categories?=aid will return just the records with a category of 'aid', but none of the things i've tried have made the superagent get request work.
+
+  
+[]  clean up public folder
+
+[]  onclick method in categories.ejs link to fire off superagent.get of ?name={name}?
+
+
 
 ## Before you begin
 * You'll need to initialize this lab folder as a new node module, install your dependencies, setup your npm script commands, and pull in your config files
