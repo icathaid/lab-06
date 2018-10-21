@@ -36,9 +36,9 @@ Sample data consists of Fallout 4 items.
 It has 3 functions corresponding to its 3 GET routes, each expecting a request and a response, and rendering an ejs page to the index (main).
 
  - /
-  - runs the homePage function
-  - renders a generic landing page for the app with a header, main, and footer component
-    - main component pulls in content by dark ejs magic
+    - runs the homePage function
+    - renders a generic landing page for the app with a header, main, and footer component
+      - main component pulls in content by dark ejs magic
 
 - /categories
   - runs the categoryView function
