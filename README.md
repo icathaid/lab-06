@@ -1,8 +1,9 @@
 `put travis badge here`
 
- LAB: HTTP and REST
+ LAB 06: HTTP and REST
 ========================================================
   I'm stuck on the syntax of this get request
+
   http GET :3000/categories?=aid will return just the records with a category of 'aid', but none of the things i've tried have made the superagent get request work.
 
   ejs is like if microsoft created react
@@ -28,20 +29,26 @@ API server for a storefront implemented with json-server.  It contains two data 
 
 can be started with `npm start`
 
-Web server for front end of store app, implemented with express and ejs
+Web server for front end of store app, implemented with express as its router and ejs as its view engine
 
-  * Static routes and assets are served from the public folder
-  * Uses ejs as its view engine
-  * Implements site.ejs as a master template that pulls in a partial into the <main> element based on the 'page' being served
-  * Has 3 GET routes:
-    * /
-      - home page
-    * /categories
-      - lists each category of products in the database (db.json/json-server)
-    * /categories:/name
-      - should list all of the products in the category clicked on
-      - this feature does not work yet, it returns a list of all products regardless of category
-  
+Sample data consists of Fallout 4 items.
+
+It has 3 functions corresponding to its 3 GET routes, each expecting a request and a response, and rendering an ejs page to the index (main).
+
+ - /
+  - runs the homePage function
+  - renders a generic landing page for the app with a header, main, and footer component
+    - main component pulls in content by dark ejs magic
+
+- /categories
+  - runs the categoryView function
+  - renders a page to the main view listing the categories returned from the database
+    - each list item generates a link to a product view page listing all products matching that category
+
+- /categories/:name
+  - runs the productsView function, which expects a third parameter, 'category', but I'm not sure if I'm using it correctly, as the function doesn't work.
+  - WERE it to work correctly, it would render a page with information about each item in the selected category.
+
 
 ## RESTy
 
@@ -56,9 +63,3 @@ can be started with `npm run dev`
 
 * Use `supertest` to assert that the server responds to the routes
 * Mock out the API calls in the web server test
-
-
-##  Documentation
-Include your travis badge at the top of your `README.md` file
-In your `README.md`, describe the exported values of each module you have defined. Every function description should include it's airty (expected number of parameters), the expected data for each parameter (data-type and limitations), and it's behavior (for both valid and invalid use). Feel free to add any additional information in your `README.md` that you would like.
-
