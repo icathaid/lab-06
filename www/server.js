@@ -14,14 +14,16 @@ app.use( express.static('./public') );
 
 app.get('/', homePage);
 app.get('/categories/', categoriesView);
-app.get('/categories:/name', productsView);
+app.get('/categories/:name', productsView);
 
 function homePage( req, res ){
   res.render('index', {page:'./pages/home',title:'Our Site: Home'});
 }
 
-function productsView(req, res, category){
-  superagent.get(`${API}/categories?=${category.name}`)
+function productsView(req, res){
+  let type = req.url.split(':');
+  superagent.get(`${API}/products`)
+    .query({category:type[(type.length-1)]})
     .then( data => {
       res.render('index', {products:data.body, page:'./pages/products', title:'Products page'});
     })
