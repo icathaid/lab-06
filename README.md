@@ -2,15 +2,7 @@
 
  LAB 06: HTTP and REST
 ========================================================
-  I'm stuck on the syntax of this get request
-
-  http GET :3000/products?category=aid will return just the records with a category of 'aid', but none of the things i've tried have made the superagent get request work.
-
-  ejs is like if microsoft created react
-
-
-  speaking of microsoft, github is currently having issues that are interfering with heroku integration as of 4:30PM Sun, so hopefully I will update this before midnight with Heroku.  If this segment is still in here, github was still down as of deadline.
-
+  
 ## API Server
 
 can be started with `json-server --id=_id db.json`
@@ -56,10 +48,4 @@ can be started with `npm run dev`
 
 ## Testing
 
-Going to have to get back to this on a resubmit, I need to get on to lab 7 before deadline
-
-TODO:
-
-- webserver
-  [] Use `supertest` to assert that the server responds to the routes
-  [] Mock out the API calls in the web server test
+I wasn't really sure how to go about mocking the API calls and I need to move on to other labs, so no testing for now.
