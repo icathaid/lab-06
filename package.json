@@ -1,0 +1,22 @@
+{
+  "name": "lab-06",
+  "version": "1.0.0",
+  "description": "`put travis badge here`",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icathaid/lab-06.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icathaid/lab-06/issues"
+  },
+  "homepage": "https://github.com/icathaid/lab-06#readme"
+}
