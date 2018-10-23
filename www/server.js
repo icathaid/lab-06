@@ -20,11 +20,16 @@ function homePage( req, res ){
   res.render('index', {page:'./pages/home',title:'Our Site: Home'});
 }
 
-function productsView(req, res, name){
+function productsView(req, res, category){
   //  the api call only works if i hardwire in the category, i still need to figure out how to render the superagent calls dynamically.
-  // superagent.get(`${API}/products?category=${name}`)
+  // superagent.get(`${API}/products?category=${category.name}`)
   //  ^^ was my best guess, but didn't work ^^
-  superagent.get(`${API}/products?category=aid`)
+  // superagent.get(`${API}/products?category=aid`)
+  let type = req.url;
+  let bill = type.split(':');
+  // return console.log('BILL:           ', bill[(bill.length -1)], 'TYPE:        ', type);
+  superagent.get(`${API}/products`)
+    .query({category:bill})
     .then( data => {
       res.render('index', {products:data.body, page:'./pages/products', title:'Products page'});
     })
